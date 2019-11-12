@@ -1,6 +1,35 @@
 <!DOCTYPE html>
-<html>
-<body>
-<h1>Hello world!</h1>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>image targets</title>
+    <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
+    <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+    <script async src="//apps.8thwall.com/xrweb?appKey=tLFxHaU99vImKcX9n6uqYRn45U2Cs3RDXoJA6bpKmphdRkkpfLBqBmGCcsLIKYDxhVkfKS"></script>
+  </head>
+  <body>
+    <a-scene
+      xrweb="disableWorldTracking: true"
+      xrextras-almost-there
+      xrextras-runtime-error
+      xrextras-loading >
+      <a-assets>
+        <!-- Road 3Dmodel or other data -->
+        <!-- Credit to Poly by Google for the model: https://poly.google.com/view/1yIyIdo-C0Y -->
+        <a-asset-item id="pixel-glb" src="https://github.com/0e1ka10/silver-robot/raw/master/AR/8thWall/models/pixel-model.glb"></a-asset-item>
+      </a-assets>
+      <a-camera position="0 8 8"></a-camera>
+      <a-entity
+        light="type: directional; castShadow: false; intensity: 0.5;"
+        position="-0.8 3 1.85" >
+      </a-entity>
+
+      <a-entity xrextras-named-image-target="name: testMarker">
+        <!-- show pixel model -->
+        <a-entity xrextras-one-finger-rotate gltf-model="#pixel-glb"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
