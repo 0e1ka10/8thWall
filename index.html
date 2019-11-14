@@ -19,15 +19,18 @@
         <!-- Credit to Poly by Google for the model: https://poly.google.com/view/1yIyIdo-C0Y -->
         <a-asset-item id="pixel-glb" src="pixel-model.glb"></a-asset-item>
       </a-assets>
-      <a-camera position="0 0 0"></a-camera>
+      <a-camera position="0 8 8"></a-camera>
       <a-entity
         light="type: directional; castShadow: false; intensity: 0.5;"
-        position="0 4 -10" >
+        position="-0.8 3 1.85" >
       </a-entity>
 
       <a-entity xrextras-named-image-target="name: testMarker">
         <!-- show pixel model -->
-        <a-entity xrextras-one-finger-rotate gltf-model="#pixel-glb"></a-entity>
+        <a-entity
+          xrextras-one-finger-rotate gltf-model="#pixel-glb"
+          position="0 0 0" >
+        </a-entity>
       </a-entity>
     </a-scene>
   </body>
