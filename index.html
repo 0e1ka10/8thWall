@@ -6,6 +6,7 @@
     <title>image targets</title>
     <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
     <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+    <!-- 8th Wall API key -->
     <script async src="//apps.8thwall.com/xrweb?appKey=tLFxHaU99vImKcX9n6uqYRn45U2Cs3RDXoJA6bpKmphdRkkpfLBqBmGCcsLIKYDxhVkfKS"></script>
   </head>
   <body>
@@ -14,24 +15,30 @@
       xrextras-almost-there
       xrextras-runtime-error
       xrextras-loading >
+      
+      <!-- Set 3D model data file -->
       <a-assets>
-        <!-- Road 3Dmodel or other data -->
         <!-- Credit to Poly by Google for the model: https://poly.google.com/view/1yIyIdo-C0Y -->
         <a-asset-item id="pixel-glb" src="pixel-model.glb"></a-asset-item>
       </a-assets>
+      
       <a-camera position="0 4 10"></a-camera>
+      <!--
       <a-entity
         light="type: directional; castShadow: false; intensity: 0.5;"
         position="0 0 0" >
-      </a-entity>
+      </a-entity> -->
 
       <a-entity xrextras-named-image-target="name: testMarker">
-        <!-- show pixel model -->
-        <a-entity
-          xrextras-one-finger-rotate gltf-model="#pixel-glb"
-          position="0 0 0" >
+        <!-- Set text position -->
+        <a-text value="detect!" position="-0.3 0 0.5" align="center" rotation="-90 0 0" color="#7993ff">
+          </a-text>
+        <!-- Set 3D-model position -->
+        <a-entity gltf-model="#pixel-glb" play-all-model-animations="" position="0 0 0" rotation="0 0 0" scale="2 2 2" visible="true">
         </a-entity>
       </a-entity>
+      
     </a-scene>
   </body>
+  
 </html>
