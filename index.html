@@ -20,6 +20,8 @@
       <a-assets>
         <!-- Credit to Poly by Google for the model: https://poly.google.com/view/1yIyIdo-C0Y -->
         <a-asset-item id="pixel-glb" src="pixel-model.glb"></a-asset-item>
+        <!-- Credit to Poly by Google for the model: https://poly.google.com/view/dA5osnS0Rzj -->
+        <a-asset-item id="jellyfish-glb" src="jellyfish-model.glb"></a-asset-item>
       </a-assets>
       
       <a-camera position="0 4 10"></a-camera>
@@ -29,13 +31,18 @@
         position="0 0 0" >
       </a-entity> -->
 
-      <a-entity xrextras-named-image-target="name: testMarker">
+      <!-- Set pixel model -->
+      <a-entity xrextras-named-image-target="name: pixel-marker">
         <!-- Set text position -->
         <a-text value="detect!" position="0 0 0.5" align="center" rotation="-90 0 0" color="#7993ff">
           </a-text>
-        <!-- Set 3D-model position -->
         <a-entity gltf-model="#pixel-glb" play-all-model-animations="" position="0 0 0" rotation="0 0 0" scale="2 2 2" visible="true">
         </a-entity>
+      </a-entity>
+      
+      <!-- Set jellyfish model -->
+      <a-entity xrextras-named-image-target="name: jellyfish-marker">
+        <a-entity xrextras-one-finger-rotate gltf-model="#jelly-glb"></a-entity>
       </a-entity>
       
     </a-scene>
