@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <title>AKARI-Disappear</title>
+
+  <script src="//cdn.8thwall.com/web/aframe/8frame-0.9.0.min.js"></script>
+  <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+
+  <script src="//apps.8thwall.com/xrweb?appKey=pKQVc46KPX2XTvxukc3dOQggqlp7sUiYYuLF8Gy3RaAt75gMpbwrxDEDcsE4kepEzLe40V"></script>
+
+</head>
+
+<body>
+
+  <a-scene
+    xrweb="disableWorldTracking: true"
+    xrextras-gesture-detector
+    xrextras-almost-there
+    xrextras-loading
+    xrextras-runtime-error>
+
+    <a-assets>
+      <!-- Load video -->
+      <video id="mirakurun-video" autoplay="true" src="video/mirakurun-video.mp4"></video>
+    </a-assets>
+
+    <a-camera
+      position="0 4 10"
+      raycaster="objects: .cantap"
+      cursor="fuse: false; rayOrigin: mouse;">
+    </a-camera>
+
+    <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
+
+    <a-light type="ambient" intensity="1"></a-light>
+    
+    <a-entity xrextras-named-image-target="name: video-target">
+        <a-video src="#mirakurun-video" width="16" height="9" position="0 0 0"></a-video>
+  </a-scene>
+
+</body>
+</html>
