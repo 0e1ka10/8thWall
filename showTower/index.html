@@ -21,11 +21,6 @@
         <!-- Credit to Poly by Google for the model: https://poly.google.com/view/frPqTFGeRNM -->
         <a-asset-item id="tower-model" src="models/tokyotower-town.glb"></a-asset-item>
       </a-assets>
-      <!-- Set audio file -->
-      <a-assets>
-        <!-- Credit to 無料効果音で遊ぼう！: https://taira-komori.jpn.org/index.html -->
-        <audio id="town-afternoon" src="sound/town_afternoon.mp3" preload="auto"></audio>
-      </a-assets>
       
       <a-camera position="0 4 10"></a-camera>
       <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
@@ -33,7 +28,9 @@
       <!-- Set tower model and play audio -->
       <a-entity xrextras-named-image-target="name: targetTower">
         <a-entity xrextras-one-finger-rotate gltf-model="#tower-model"></a-entity>
-        <a-entity sound="src: #town-afternoon"></a-entity>
+        
+        <!-- Credit to 無料効果音で遊ぼう！: https://taira-komori.jpn.org/index.html -->
+        <a-assets><audio src="sound/town_afternoon.mp3" autoplay preload></audio></a-assets>
       </a-entity>
       
     </a-scene>
