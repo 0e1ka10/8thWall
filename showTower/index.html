@@ -31,8 +31,15 @@
         <a-asset-item id="tower-model" src="model/tokyotower-town.glb"></a-asset-item>
       </a-assets>
       
-      <a-camera position="0 4 10"></a-camera>
+      <a-camera
+      position="0 4 10"
+      raycaster="objects: .cantap"
+      cursor="fuse: false; rayOrigin: mouse;">
+      </a-camera>
+
       <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
+
+      <a-light type="ambient" intensity="1"></a-light>
       
       <!-- Set tower model and play audio -->
       <a-entity xrextras-named-image-target="name: targetTower">
