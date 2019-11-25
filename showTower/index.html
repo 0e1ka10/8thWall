@@ -1,14 +1,23 @@
-<html lang="en">
+<!doctype html>
+<html>
+
   <head>
+    <!-- meta tag -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>image targets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- page title -->
+    <title>showTower</title>
+    
+    <!-- set js URL -->
     <script src="https://cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
     <script src="https://cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+    
     <!-- 8th Wall API key -->
     <script async src="https://apps.8thwall.com/xrweb?appKey=zqWfjTisIUoeuk0LE2EWxhfPILzo7qaubSCYClRa09IpDRP9sY4TkHxz2CQ0RJE0gfqw26"></script>
   </head>
+  
   <body>
     <a-scene
       xrweb="disableWorldTracking: true"
@@ -29,8 +38,8 @@
       <a-entity xrextras-named-image-target="name: targetTower">
         <a-entity xrextras-one-finger-rotate gltf-model="#tower-model"></a-entity>
         
-        <!-- Credit to 無料効果音で遊ぼう！: https://taira-komori.jpn.org/index.html
-        <a-assets><audio src="sound/town_afternoon.mp3" autoplay preload></audio></a-assets> -->
+        <!-- Credit to 無料効果音で遊ぼう！: https://taira-komori.jpn.org/index.html -->
+        <a-assets><audio src="sound/town_afternoon.mp3" autoplay preload></audio></a-assets>
       </a-entity>
       
     </a-scene>
