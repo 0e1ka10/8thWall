@@ -46,15 +46,15 @@
       cursor="fuse: false; rayOrigin: mouse;">
     </a-camera>
 
-    <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
+    <!-- <a-light type="directional" intensity="0.5" position="1 1 1"></a-light> -->
 
-    <a-light type="ambient" intensity="1"></a-light>
+    <!-- <a-light type="ambient" intensity="1"></a-light> -->
 
     <!-- Note: "name:" must be set to the name of the image target uploaded to the 8th Wall Console -->
     <a-entity
       xrextras-named-image-target="name: video-target"
       xrextras-play-video="video: #mirakurun-video; thumb: #video-target; canstop: true"
-      geometry="primitive: plane; height: 1; width: 0.79;">
+      geometry="primitive: plane; height: 1; width: 1;">
     </a-entity>
 
   </a-scene>
