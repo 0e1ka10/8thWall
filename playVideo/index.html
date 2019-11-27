@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 
@@ -5,14 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
 
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>8th Wall Web: Flyer</title>
 
-  <title>AKARI-Disappear</title>
+  <script src="https://cdn.8thwall.com/web/aframe/8frame-0.9.0.min.js"></script>
 
-  <script src="//cdn.8thwall.com/web/aframe/8frame-0.9.0.min.js"></script>
-  <script src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+  <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
+         See github.com/8thwall/web/xrextras -->
+  <script src="https://cdn.8thwall.com/web/xrextras/xrextras.js"></script>
 
-  <script src="//apps.8thwall.com/xrweb?appKey=pKQVc46KPX2XTvxukc3dOQggqlp7sUiYYuLF8Gy3RaAt75gMpbwrxDEDcsE4kepEzLe40V"></script>
+  <!-- 8thWall Web - Replace the app key here with your own app key -->
+  <script src="https://apps.8thwall.com/xrweb?appKey=pKQVc46KPX2XTvxukc3dOQggqlp7sUiYYuLF8Gy3RaAt75gMpbwrxDEDcsE4kepEzLe40V"></script>
 
 </head>
 
@@ -26,15 +29,15 @@
     xrextras-runtime-error>
 
     <a-assets>
-      <!-- Load video -->
+      <img id="video-target" src="targets/video-target.jpg">
       <video
         id="mirakurun-video"
         autoplay
-        loop
         muted
-        src="video/mirakurun-video.mp4"
-        playsinline
-        webkit-playsinline></video>
+        crossorigin="anonymous"
+        loop="true"
+        src="video/mirakurun-video.mp4">
+      </video>
     </a-assets>
 
     <a-camera
@@ -46,9 +49,14 @@
     <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
 
     <a-light type="ambient" intensity="1"></a-light>
-    
-    <a-entity xrextras-named-image-target="name: video-target">
-        <a-video src="#mirakurun-video" width="1.78" height="1" position="0 0 0"></a-video>
+
+    <!-- Note: "name:" must be set to the name of the image target uploaded to the 8th Wall Console -->
+    <a-entity
+      xrextras-named-image-target="name: video-target"
+      xrextras-play-video="video: #mirakurun-video; thumb: #video-target; canstop: true"
+      geometry="primitive: plane; height: 1; width: 0.79;">
+    </a-entity>
+
   </a-scene>
 
 </body>
