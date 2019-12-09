@@ -29,14 +29,23 @@
     xrextras-runtime-error>
 
     <a-assets>
-      <img id="video-target" src="targets/video-target.jpg">
+      <img id="yuruyuri-target" src="targets/yuruyuri-target.jpg">
+      <img id="animation-target" src="targets/animation-target.jpg">
       <video
-        id="mirakurun-video"
+        id="yuruyuri-video"
         autoplay
         muted
         crossorigin="anonymous"
         loop="true"
-        src="video/mirakurun-video.mp4">
+        src="video/yuruyuri-video.mp4">
+      </video>
+      <video
+        id="animation-video"
+        autoplay
+        muted
+        crossorigin="anonymous"
+        loop="true"
+        src="video/animation-video.mp4">
       </video>
     </a-assets>
 
@@ -52,8 +61,13 @@
 
     <!-- Note: "name:" must be set to the name of the image target uploaded to the 8th Wall Console -->
     <a-entity
-      xrextras-named-image-target="name: video-target"
-      xrextras-play-video="video: #mirakurun-video; thumb: #video-target; canstop: true"
+      xrextras-named-image-target="name: yuruyuri-target"
+      xrextras-play-video="video: #yuruyuri-video; thumb: #yuruyuri-target; canstop: true"
+      geometry="primitive: plane; height: 0.78; width: 1.4;">
+    </a-entity>
+    <a-entity>
+      xrextras-named-image-target="name: animation-target"
+      xrextras-play-video="video: #animation-video; thumb: #animation-target; canstop: true"
       geometry="primitive: plane; height: 0.78; width: 1.4;">
     </a-entity>
 
