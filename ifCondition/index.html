@@ -16,22 +16,8 @@
         <script async src="//apps.8thwall.com/xrweb?appKey=bnWBr8smMOtm8hsLzv1M3AsjyZEPcHize0Tqflu9nYQxqu0yf0fp8mul8iPtRtqb0oR3LW"></script>
         
         <script>
-                // 0~10の範囲の乱数を生成する
-      var random = Math.floor( Math.random() * 11 );
-      // 条件文
-      if (random == 10) {
-      document.write(“大吉です！おめでとう！”);
-      }
-      else if (random == 0) {
-      document.write("大凶です！お気をつけて！");
-      }
-      else if (random > 5) {
-      document.wirte("吉です");
-      }
-      else {
-      document.write(“凶です”);
-      }
-            function make_tower() {
+        var random = Math.floor( Math.random() * 11 );
+        function make_tower() {
                 var random = Math.floor( Math.random()*11 );
                 var scene = document.querySelector('a-scene');
                 
