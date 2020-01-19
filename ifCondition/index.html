@@ -1,13 +1,22 @@
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>おみくじ</title>
-  </head>
-  <body>
-    <script>
-      // 0~10の範囲の乱数を生成する
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+
+        <title>デモページ(条件分け)</title>
+
+        <script src="//cdn.8thwall.com/web/aframe/8frame-0.9.0.min.js"></script>
+        <script defer src="//cdn.8thwall.com/web/aframe/aframe-animation-component-5.1.2.min.js"></script>
+        <script src="//cdn.8thwall.com/web/aframe/aframe-extras-4.2.0.min.js"></script>
+        <script src="https://cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+
+        <!-- 8th Wall API key -->
+        <script async src="//apps.8thwall.com/xrweb?appKey=bnWBr8smMOtm8hsLzv1M3AsjyZEPcHize0Tqflu9nYQxqu0yf0fp8mul8iPtRtqb0oR3LW"></script>
+        
+        <script>
+                // 0~10の範囲の乱数を生成する
       var random = Math.floor( Math.random() * 11 );
       // 条件文
       if (random == 10) {
@@ -22,6 +31,135 @@
       else {
       document.write(“凶です”);
       }
-    </script>
-  </body>
+            function make_tower() {
+                var random = Math.floor( Math.random()*11 );
+                var scene = document.querySelector('a-scene');
+                
+                if (random > 5) {
+                  var model = document.createElement('a-gltf-model');
+                  model.setAttribute('src', '#ground');
+                  model.setAttribute('id', 'ground');
+                  model.setAttribute('scale', '0.0125 0.0125 0.0125');
+                  scene.appendChild(model);
+                  for(var i = 1; i <= 36; i++) {
+                      var tower_ = document.createElement('a-gltf-model');
+                      tower_.setAttribute('src', '#tower' + String(i));
+                      tower_.setAttribute('id', 'tower_' + String(i));
+                      tower_.setAttribute('scale', '0.0125 0.0125 0.0125');
+                      tower_.setAttribute("visible", "false");
+                      scene.appendChild(tower_);
+                  }
+              }
+              else {
+                  var model = document.createElement('a-gltf-model');
+                  model.setAttribute('src', '#ground');
+                  model.setAttribute('id', 'ground');
+                  model.setAttribute('scale', '0.0125 0.0125 0.0125');
+                  scene.appendChild(model);
+                  for(var i = 1; i <= 15; i++) {
+                      var tower_ = document.createElement('a-gltf-model');
+                      tower_.setAttribute('src', '#tower' + String(i));
+                      tower_.setAttribute('id', 'tower_' + String(i));
+                      tower_.setAttribute('scale', '0.0125 0.0125 0.0125');
+                      tower_.setAttribute("visible", "false");
+                      scene.appendChild(tower_);
+                  }
+              }
+              
+              document.querySelector('#ground').setAttribute("visible", "true");
+              for(var i = 1; i <= 33; i++) {
+                  document.querySelector('#tower_'+String(i)).setAttribute("animation", "property: visible; to: true; delay: " + String(250*i) + ";");
+              }
+              document.querySelector('#tower_34').setAttribute("animation", "property: visible; to: true; delay: 1250;")
+              document.querySelector('#tower_35').setAttribute("animation", "property: visible; to: true; delay: 4000;")
+              document.querySelector('#tower_36').setAttribute("animation", "property: visible; to: true; delay: 7250;")
+            }
+        </script>
+    
+    </head>
+    <body>
+        <div id="photoModeContainer" style="display: none">
+            <img id="photoModeImage">
+            <div id="flash"></div>
+
+            <div id="tweetWindow"></div>
+            <textarea id="tweet3Text" cols="33" rows="5">test message</textarea>
+            <div id="tweet3Button">TWEET</div>
+            <div id="tweet3CancelButton">Cancel</div>
+
+            <div id="menuBar"></div>
+
+            <img id="actionButton" src="https://3.bp.blogspot.com/-O-4F2rFHaMs/WoJRvwjRkRI/AAAAAAABKXY/EEiWs__TbsMSmRJl9BssnJP8-0KTRnMNgCLcBGAs/s800/tokyo_tower.png"></img>
+            <div id="shutterButton"></div>
+            <img id="backgroundButton" src="https://4.bp.blogspot.com/-09z6pusV580/W4PJ4T9QtlI/AAAAAAABOKs/sz37atRgv9EpjfpLSXKEUZ-NHK75YTxLgCLcBGAs/s800/new_york_manhattan_yoru.png"></img>
+
+            <div id="cancelButton"></div>
+            <img class="hide" id="saveButton" src="https://1.bp.blogspot.com/-_Klr-z5WhJA/WlGpUE2oDgI/AAAAAAABJmQ/7FTA91uQ0SI7LWdAvkzDIMh3ckGc8QQuACLcBGAs/s800/game_savepoint.png"></img>
+            <img class="hide" id="tweetButton" src="https://1.bp.blogspot.com/-nMTqgygyczs/VqtZItHn2_I/AAAAAAAA3ZY/5ZfrZPuZzbY/s800/bird_aoitori_bluebird.png"></img>
+
+            <div class="balloon1" id="balloon1">東京タワーを出してみよう！</div>
+            <div class="balloon2 hide" id="balloon2">背景を変えてみよう！</div>
+            <div class="balloon3 hide" id="balloon3">写真を撮ってTwitterにシェアしてみよう！</div>
+        </div>
+
+        <a-scene
+            xrweb="disableWorldTracking: true"
+            xrextras-almost-there
+            xrextras-runtime-error
+            xrextras-loading>
+          <a-assets>
+                <a-asset-item id="tower1" src="model/01.glb"></a-asset-item>
+                <a-asset-item id="tower2" src="model/02.glb"></a-asset-item>
+                <a-asset-item id="tower3" src="model/03.glb"></a-asset-item>
+                <a-asset-item id="tower4" src="model/04.glb"></a-asset-item>
+                <a-asset-item id="tower5" src="model/05.glb"></a-asset-item>
+                <a-asset-item id="tower6" src="model/06.glb"></a-asset-item>
+                <a-asset-item id="tower7" src="model/07.glb"></a-asset-item>
+                <a-asset-item id="tower8" src="model/08.glb"></a-asset-item>
+                <a-asset-item id="tower9" src="model/09.glb"></a-asset-item>
+                <a-asset-item id="tower10" src="model/10.glb"></a-asset-item>
+                <a-asset-item id="tower11" src="model/11.glb"></a-asset-item>
+                <a-asset-item id="tower12" src="model/12.glb"></a-asset-item>
+                <a-asset-item id="tower13" src="model/13.glb"></a-asset-item>
+                <a-asset-item id="tower14" src="model/14.glb"></a-asset-item>
+                <a-asset-item id="tower15" src="model/15.glb"></a-asset-item>
+                <a-asset-item id="tower16" src="model/16.glb"></a-asset-item>
+                <a-asset-item id="tower17" src="model/17.glb"></a-asset-item>
+                <a-asset-item id="tower18" src="model/18.glb"></a-asset-item>
+                <a-asset-item id="tower19" src="model/19.glb"></a-asset-item>
+                <a-asset-item id="tower20" src="model/20.glb"></a-asset-item>
+                <a-asset-item id="tower21" src="model/21.glb"></a-asset-item>
+                <a-asset-item id="tower22" src="model/22.glb"></a-asset-item>
+                <a-asset-item id="tower23" src="model/23.glb"></a-asset-item>
+                <a-asset-item id="tower24" src="model/24.glb"></a-asset-item>
+                <a-asset-item id="tower25" src="model/25.glb"></a-asset-item>
+                <a-asset-item id="tower26" src="model/26.glb"></a-asset-item>
+                <a-asset-item id="tower27" src="model/27.glb"></a-asset-item>
+                <a-asset-item id="tower28" src="model/28.glb"></a-asset-item>
+                <a-asset-item id="tower29" src="model/29.glb"></a-asset-item>
+                <a-asset-item id="tower30" src="model/30.glb"></a-asset-item>
+                <a-asset-item id="tower31" src="model/31.glb"></a-asset-item>
+                <a-asset-item id="tower32" src="model/32.glb"></a-asset-item>
+                <a-asset-item id="tower33" src="model/33.glb"></a-asset-item>
+                <a-asset-item id="ground"   src="model/ground.glb"></a-asset-item>
+                <a-asset-item id="tower34"  src="model/mall.glb"></a-asset-item>
+                <a-asset-item id="tower35"  src="model/mall_h13.glb"></a-asset-item>
+                <a-asset-item id="tower36"  src="model/h13_top.glb"></a-asset-item>
+                <video id="usingv" autoplay muted loop="true" src="movie/SVID_20200102_143519_1.mp4">
+            </a-assets>
+
+            <a-camera
+                position="0 4 10"
+                raycaster="objects: .cantap"
+                cursor="fuse: false; rayOrigin: mouse;">
+            </a-camera>
+
+            <a-light type="directional"
+                     intensity="0.5"
+                     animation="property: position; from: -5 -5 5; to: 5 5 5; dur: 2000; easing: linear; dir: alternate; loop: true">
+            </a-light>
+
+            <a-light type="ambient" intensity="1"></a-light>
+        </a-scene>
+    </body>
 </html>
