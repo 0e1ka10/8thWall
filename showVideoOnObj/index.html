@@ -34,8 +34,10 @@
         muted
         crossorigin="anonymous"
         loop="true"
-        src="video/InkVideo.mp4">
+        src="etc/InkVideo.mp4">
       </video>
+      
+      <img id="Spring" src="etc/Spring.jpg">
     </a-assets>
 
     <a-camera
@@ -43,16 +45,9 @@
       raycaster="objects: .cantap"
       cursor="fuse: false; rayOrigin: mouse;"></a-camera>
     
-    <a-entity
-      xrextras-play-video="video: #InkVideo; canstop: true"
-      geometry="primitive: plane; height: 1; width: 1;"
-      position="0 0 0"></a-entity>
+    <a-circle src="#Spring" radius="0.5" position="2 0 0" rotation="-90 0 0"></a-circle>
+    <a-circle src="#InkVideo" radius="0.5" position="-2 0 0" rotation="-90 0 0"></a-circle>
     
-    <a-entity
-      xrextras-play-video="video: #InkVideo; canstop: true"
-      geometry="primitive: sphere; radius: 1;"
-      position="0 10 0"></a-entity>
-      
   </a-scene>
 
 </body>
