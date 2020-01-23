@@ -18,6 +18,7 @@
       
     <a-scene
         xrweb
+        xrweb="disableWorldTracking: true"
         xrextras-almost-there
         xrextras-loading
         xrextras-runtime-error>
@@ -39,11 +40,8 @@
             raycaster="objects: .cantap"
             cursor="fuse: false; rayOrigin: mouse;"></a-camera>
       
-        <a-circle src="#Spring" radius="2" position="2 4 0" rotation="0 90 0"></a-circle>
-        <a-circle src="#InkVideo" radius="2" position="-2 4 0" rotation="0 90 0"></a-circle>
-        
-        <a-entity src="#Spring "geometry="primitive: circle; radius: 3" position="3 4 0" rotation="0 90 0" color="#ccc"></a-entity>
-        <a-entity src="#InkVideo" geometry="primitive: circle; radius: 3" position="-3 4 0" rotation="0 90 0" color="#ccc"></a-entity>
+        <a-circle src="#Spring" radius="2" position="2 4 0" rotation="0 0 0"></a-circle>
+        <a-circle src="#InkVideo" radius="2" position="-2 4 0" rotation="0 0 0"></a-circle>
         
         <a-sky color="#000"></a-sky>
     </a-scene>
