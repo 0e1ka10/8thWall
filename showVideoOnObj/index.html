@@ -39,8 +39,11 @@
             raycaster="objects: .cantap"
             cursor="fuse: false; rayOrigin: mouse;"></a-camera>
       
-        <a-circle src="#Spring" radius="0.5" position="2 0 0" rotation="0 90 0"></a-circle>
-        <a-circle src="#InkVideo" radius="0.5" position="-2 0 0" rotation="0 90 0"></a-circle>
+        <!-- <a-circle src="#Spring" radius="0.5" position="2 0 0" rotation="0 90 0"></a-circle> -->
+        <!-- <a-circle src="#InkVideo" radius="0.5" position="-2 0 0" rotation="0 90 0"></a-circle> -->
+        
+        <a-entity src="#Spring "geometry="primitive: circle; radius: 0.5" position="2 0 0" rotation="0 90 0"></a-entity>
+        <a-entity src="#InkVideo" geometry="primitive: circle; radius: 0.5" position="-2 0 0" rotation="0 90 0"></a-entity>
     </a-scene>
     </body>
 </html>
