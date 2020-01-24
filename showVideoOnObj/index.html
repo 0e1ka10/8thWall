@@ -11,6 +11,10 @@
         <script src="https://cdn.8thwall.com/web/xrextras/xrextras.js"></script>
         <script src="//cdn.8thwall.com/web/aframe/aframe-extras-4.2.0.min.js"></script>
         
+        <!-- For gif img -->
+        <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+        <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+        
         <!-- API key -->
         <script src="https://apps.8thwall.com/xrweb?appKey=cvHJCj9BpzU6pF8D46ylsbn9Zjdyyf54OVcNe1n0NbRTRWHw9vYeBqF3IG47iYO938rySD"></script>
     </head>
@@ -46,6 +50,8 @@
         <a-circle src="#InkVideo" radius="2" position="-2 4 0" rotation="0 0 0"></a-circle>
         
         <a-video src="#InkVideo" width="16" height="9" position="0 0 -5"></a-video>
+        
+        <a-circle radius="2" position="5 4 0" rotation="0 0 0" material="shader:gif; src:url(CherryBlossom.gif);" gif=""></a-circle>
         
         <a-sky color="#000"></a-sky>
     </a-scene>
