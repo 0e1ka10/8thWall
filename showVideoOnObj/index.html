@@ -55,10 +55,14 @@
             <img id="Spring" src="etc/Spring.jpg">
         </a-assets>
 
-        <a-camera
+        <!-- <a-camera
             position="0 4 10"
             raycaster="objects: .cantap"
-            cursor="fuse: false; rayOrigin: mouse;"></a-camera>
+            cursor="fuse: false; rayOrigin: mouse;"></a-camera> -->
+        <a-camera
+            position="0 4 10">
+            <a-cursor></a-cursor>
+        </a-camera>
       
         <!-- <a-circle src="#Spring" radius="2" position="2 4 0" rotation="0 0 0"></a-circle>
         <a-circle src="#InkVideo" radius="2" position="-2 4 0" rotation="0 0 0"></a-circle>
