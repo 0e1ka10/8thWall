@@ -20,14 +20,13 @@
         
         <!-- Change mask gif-image -->
         <script>
-            var i = -1;
-            var SRCS = ['CherryBlossom.gif', 'Moon.gif', 'Water.gif'];
-            AFRAME.registerComponent('Change-BG', {
+            AFRAME.registerComponent('changebg', {
                 init: function () {
+                    var lastIndex = -1;
+                    var SRCS = ['CherryBlossom.gif', 'Moon.gif', 'Water.gif'];
                     this.el.addEventListener('click', function (evt) {
-                        i = (i + 1) % SRCS.length;
-                        this.removeAttribute('material');
-                        this.setAttribute('material', {src: url(SRCS[i])});
+                        lastIndex = (lastIndex + 1) % SRCS.length;
+                        this.setAttribute('material', 'color', SRCS[lastIndex]);
                     });
                 }
             });
@@ -73,7 +72,6 @@
         
         <a-circle id="circle" Change-BG radius="3" position="0 5 0" rotation="0 0 0" material="shader:gif; src:url(Moon.gif);" gif=""></a-circle>
         
-        <a-sky color="#000"></a-sky>
     </a-scene>
     </body>
 </html>
