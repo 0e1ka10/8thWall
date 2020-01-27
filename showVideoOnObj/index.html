@@ -26,7 +26,7 @@
                     var SRCS = ['CherryBlossom.gif', 'Moon.gif', 'Water.gif'];
                     this.el.addEventListener('click', function (evt) {
                         lastIndex = (lastIndex + 1) % SRCS.length;
-                        this.setAttribute(material, {"shader: gif, src: url(SRCS[lastIndex])"} gif, "");
+                        this.setAttribute(material, {shader: gif, src: url(SRCS[lastIndex])}, gif, "");
                     });
                 }
             });
@@ -70,7 +70,7 @@
         <a-circle src="#InkVideo" radius="2" position="-2 4 0" rotation="0 0 0"></a-circle>
         <a-video src="#InkVideo" width="16" height="9" position="0 0 -5"></a-video> -->
         
-        <a-circle id="circle" Change-BG radius="3" position="0 5 0" rotation="0 0 0" material="shader: gif, src: url(Moon.gif)" gif=""></a-circle>
+        <a-circle id="circle" changebg radius="3" position="0 5 0" rotation="0 0 0" material="shader: gif, src: url(Moon.gif)" gif=""></a-circle>
         
     </a-scene>
     </body>
