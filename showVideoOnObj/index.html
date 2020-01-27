@@ -26,6 +26,7 @@
                 init: function () {
                     this.el.addEventListener('click', function (evt) {
                         i = (i + 1) % SRCS.length;
+                        this.removeAttribute('material');
                         this.setAttribute('material', {src: url(SRCS[i])});
                     });
                 }
